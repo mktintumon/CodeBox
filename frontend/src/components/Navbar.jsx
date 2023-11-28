@@ -8,10 +8,9 @@ import Button from "@mui/material/Button";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { Avatar, Icon } from "@mui/material";
+import { Avatar } from "@mui/material";
 
 export default function Navbar() {
-
   const userName = localStorage.getItem("username");
   const key = "userId";
   const [isLoggedIn, setIsLoggedIn] = useState(
@@ -31,8 +30,7 @@ export default function Navbar() {
     <Box sx={{ flexGrow: 4 }}>
       <AppBar position="fixed">
         <Toolbar style={{ backgroundColor: "black" }}>
-          
-          <Avatar src="/codebox.png" alt="logo"/>
+          <Avatar src="/codebox.png" alt="logo" />
           &nbsp;&nbsp;
           <Typography
             variant="h6"
@@ -61,7 +59,6 @@ export default function Navbar() {
               <p>{userName?.substring(1, userName.length - 1)}</p>
             </div>
           )}
-
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
               size="large"
@@ -97,7 +94,7 @@ export default function Navbar() {
                   marginTop: "0.2rem",
                   marginRight: "2.5rem",
                 }}
-                onClick={() => navigateTo(isLoggedIn ? "/" : "/login")}
+                onClick={() => navigateTo(isLoggedIn ? "/home" : "/login")}
               >
                 LOGIN
               </Button>

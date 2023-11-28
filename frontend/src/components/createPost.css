@@ -1,13 +1,13 @@
 .code-post-container {
     width: 45%;
-    height: 20rem;
+    height: 25rem;
     margin: 0 auto;
-    padding: 20px;
+    padding: 25px;
     background-color: #f5f5f5;
     border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(1, 2, 3, 0.2);
-    margin-top: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 0 5px rgba(5, 5, 5, 0.8);
+
   }
   
   h2 {
@@ -24,12 +24,33 @@
     border-radius: 5px;
     overflow: auto;
     resize: none;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+  }
+
+  .title-input{
+    width: 95%;
+    height: 1.5rem;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: auto;
+    resize: none;
+    margin-bottom: 1rem;
+    margin-top: 0.6rem;
+    font-size: 1rem;
+    font-family: 'Times New Roman', Times, serif;
   }
   
   .button-container {
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
+  }
+
+  textarea::placeholder {
+    font-weight: bold;
+    opacity: 0.5;
   }
   
   .cancel-button{
@@ -39,18 +60,18 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-left: 1rem;
   }
   .post-button {
     padding: 10px 20px;
     background-color: #007bff;
+    margin-right: 1rem;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
-  .post-button {
     background-color: #28a745;
+    width: 6rem;
   }
   
   .post-button:hover {

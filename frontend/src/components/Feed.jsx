@@ -2,25 +2,38 @@ import { useEffect, useState } from "react";
 import FeedHeader from "./FeedHeader";
 import axios from "axios";
 import Loader from "./Loader";
+import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vs2015 } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 export default function Feed() {
   const [data, setData] = useState([]);
 
- 
-  useEffect(() => {
-    async function api() {
-      try {
-        const response = await axios.get(
-          "https://dummyjson.com/posts?limit=10"
-        );
-        setData(response.data.posts);
-        console.log(response.data.posts);
-      } catch (error) {
-        console.error(error);
-      }
-    }
+  const codeStyle = {
+    fontSize: "14px",
+    color: "black",
+    lineHeight: "1.5",
+    backgroundColor: "#F8F7F0",
+    padding: "10px",
+    overflow: "auto",
+    height: "80%",
+    width: "100%",
+    borderRadius: "0.5rem",
+    paddingRight: "initial"
+  };
 
-    api()
+  useEffect(() => {
+    const getAllPosts = async () => {
+      try {
+        const response = await axios.get(`http://localhost:8081/posts`);
+        const todosData = response.data;
+        setData(todosData.reverse());
+        console.log(todosData);
+      } catch (error) {
+        console.error("Error:", error.message);
+      }
+    };
+
+    getAllPosts();
   }, []);
 
   return (
@@ -34,63 +47,45 @@ export default function Feed() {
               justifyContent: "center",
               padding: "2rem",
               gap: "2rem",
-              margin:"auto",
-              marginTop:"-3rem"
-
+              margin: "auto",
+              marginTop: "-3rem",
             }}
           >
             <FeedHeader />
-  
+
             {data.map((post) => (
               <div
-                key={post.id}
+                key={post.postId}
                 style={{
-                  height: "11rem",
+                  height: "20rem",
                   width: "36rem",
                   border: "1px solid grey",
-                  borderRadius: "2rem",
+                  borderRadius: "0.5rem",
                   padding: "1.5rem",
                   textAlign: "justify",
                 }}
               >
-                <h2>{post.title}</h2>
-                <p>
-                  {post.body.substring(0, 200)}.....<b><a href="/">Read More</a></b>
-                </p>
+                <h3
+                  style={{
+                    textAlign: "center",
+                    marginTop: "-0.6rem",
+                    marginBottom: "1.2rem",
+                  }}
+                >
+                  {post.title}
+                </h3>
+
+                <SyntaxHighlighter style={vs2015} customStyle={codeStyle}>
+                  {post.content}
+                </SyntaxHighlighter>
+
                 <div
                   style={{
                     display: "flex",
                     flexDirection: "row",
                     gap: "1rem",
                   }}
-                >
-                  <p style={{ marginTop: "0.6rem" }}>
-                    <u>
-                      <b>Tags </b>
-                    </u>
-                    :
-                  </p>
-  
-                  {post.tags.map((tag) => (
-                    <p
-                      key={tag}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        backgroundColor: "green",
-                        borderRadius: "1rem",
-                        color: "white",
-                        fontSize: "0.8rem",
-                        padding: "0.2rem",
-                        height: "1rem",
-                        width: "4rem",
-                      }}
-                    >
-                      {tag}
-                    </p>
-                  ))}
-                </div>
+                ></div>
               </div>
             ))}
           </div>
@@ -102,6 +97,4 @@ export default function Feed() {
       )}
     </>
   );
-
-  
 }

@@ -16,18 +16,18 @@ export default function Notification() {
         <ListItem alignItems="flex-start">
           
           <ListItemText
-            primary="Brunch this weekend?"
+            primary="Hackathon this weekend??"
             secondary={
               <React.Fragment>
                 <Typography
                   sx={{ display: "inline" }}
                   component="span"
                   variant="body2"
-                  color="text.primary"
+                  color="#f55e56"
                 >
-                  Ali Connors
+                 Mohit 
                 </Typography>
-                {" — I'll be in your neighborhood doing errands this…"}
+                {" — Be ready for the super exciting competition and lots of rewards..."}
               </React.Fragment>
             }
           />
@@ -36,18 +36,18 @@ export default function Notification() {
         <ListItem alignItems="flex-start">
           
           <ListItemText
-            primary="Summer BBQ"
+            primary="Placement Drive"
             secondary={
               <React.Fragment>
                 <Typography
                   sx={{ display: "inline" }}
                   component="span"
                   variant="body2"
-                  color="text.primary"
+                  color="#f55e56"
                 >
-                  to Scott, Alex, Jennifer
+                  All India Drive
                 </Typography>
-                {" — Wish I could come, but I'm out of town this…"}
+                {" — Don't forget to register yourself for the coding round and install the MS teams ..."}
               </React.Fragment>
             }
           />
@@ -56,18 +56,18 @@ export default function Notification() {
         <ListItem alignItems="flex-start">
           
           <ListItemText
-            primary="Oui Oui"
+            primary="Coding Contest-32 LIVE"
             secondary={
               <React.Fragment>
                 <Typography
                   sx={{ display: "inline" }}
                   component="span"
                   variant="body2"
-                  color="text.primary"
+                  color="#f55e56"
                 >
-                  Sandra Adams
+                  Arun Singh
                 </Typography>
-                {" — Do you have Paris recommendations? Have you ever…"}
+                {" — The blaze of coding round is scheduled this week.Gear up to boost your ratings..."}
               </React.Fragment>
             }
           />

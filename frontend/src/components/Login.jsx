@@ -72,7 +72,7 @@ export default function Login() {
         setEmail("");
         setPassword("");
         alert("Login successful😊");
-        navigateTo("/", { state: { userId: response.data.userId } });
+        navigateTo("/home", { state: { userId: response.data.userId } });
         window.location.reload();
       } else {
         alert("wrong captcha");

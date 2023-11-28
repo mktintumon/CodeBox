@@ -6,6 +6,7 @@ import CreatePost from "./components/CreatePost";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Loader from "./components/Loader";
+import LandingPage from "./components/LandingPage";
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/create" element={<CreatePost />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/loader" element={<Loader />} />
